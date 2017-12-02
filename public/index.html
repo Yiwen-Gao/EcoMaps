@@ -1,56 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>EcoRoute</title>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <script type="text/javascript" src="eco.js" async=""></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="ecoMaps.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<head>
+  <title>EcoRoute</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <script type="text/javascript" src="eco.js" async=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="ecoMaps.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
     <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    -->
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <div class="sidebar">
-      <div class="title">
-        <h1>EcoRoute</h1>
-      </div>
-      <div class="sidebar_inputs">
-        <p>This is where the sidebar should be...</p>
-      </div>
-      <div class="sidebar_route_lists">
-        <p>Distance</p>
-        <p>ETA</p>
-        <i class="material-icons">face</i>
-        <p>Direction</p>
-        <p>Direction</p>
-        <p>Direction</p>
-      </div>
+  -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="title">
+      <image src="EcoRoutesLogoWhite.png" style="max-width: 80%; margin-top: 25px;">
+      <!--<h1>EcoRoutes</h1>-->
     </div>
-    <div class="map_container">
-      <div id="floating-panel">
-    <b>Start: </b>
-    <input id="start" value="new haven">
-	
-	</input>
-    <b>End: </b>
-    <input id="end"value="museum of natural history">
+    <div class="sidebar_inputs">
+      <p>Start: 
+        <input type="text" id="start" value="new haven">
+      </input>
+    </p>
+    <p>End: 
+      <input type="text" id="end" value="museum of natural history">
     </input>
+  </p>
+</div>
+<div class="sidebar_route_lists">
+  <div>
+    <i class="material-icons" style="display: inline-block; position: relative; left: 0; height: 100%;">directions_car</i>
+    <div style="display: inline-block; position: relative; height: 100%;">
+      <h3>00:00AM - 11:59PM</h3>
     </div>
-    <div id="map"></div>
-    &nbsp;
-    <div id="warnings-panel"></div>
-	<script type="text/javascript" src="ecoMaps.js" async=""></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1gLv_qElQpjlAfjZ_FZdzkTsoi1UPxI&callback=initMap">
-    </script>
+    <div style="display: inline-block; position: relative; height: 100%;">
+      <h3>10 min</h3>
     </div>
-  </body>
+  </div>
+  <div>
+    <i class="material-icons" style="display: inline-block; position: relative; left: 0; height: 100%;">directions_walk</i>
+    <div style="display: inline-block; position: relative; height: 100%;">
+      <h3>00:00AM - 11:59PM</h3>
+    </div>
+    <div style="display: inline-block; position: relative; height: 100%;">
+      <h3>10 min</h3>
+    </div>
+  </div>
+  <div>
+    <i class="material-icons" style="display: inline-block; position: relative; left: 0; height: 100%;">directions_railway</i>
+    <div style="display: inline-block; position: relative; height: 100%;">
+      <h3>00:00AM - 11:59PM</h3>
+    </div>
+    <div style="display: inline-block; position: relative; height: 100%;">
+      <h3>10 min</h3>
+    </div>
+  </div>
+  <!--<b>Distance</b>
+  <b>ETA</b>-->
+</div>
+</div>
+<div class="map_container">
+  <div id="map"></div>
+  &nbsp;
+  <div id="warnings-panel"></div>
+  <script type="text/javascript" src="ecoMaps.js" async=""></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1gLv_qElQpjlAfjZ_FZdzkTsoi1UPxI&callback=initMap">
+</script>
+</div>
+</body>
 </html>
 
 
