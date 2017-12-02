@@ -2,13 +2,15 @@
 <html>
   <head>
     <title>EcoRoute</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script type="text/javascript" src="eco.js" async=""></script>
-    <script type="text/javascript" src="ecoMaps.js" async=""></script>
     <link rel="stylesheet" href="ecoMaps.css">
     <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     -->
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
   </head>
   <body>
     <div class="sidebar">
@@ -22,8 +24,27 @@
         <p>sidebar</p>
       </div>
     </div>
-    <div class="map">
-      <p>This is where the map should be...</p>
+    <div class="map_container">
+      <div id="floating-panel">
+    <b>Start: </b>
+    <input id="start">
+	
+	</input>
+    <b>End: </b>
+    <input id="end">
+      
+    </input>
+    </div>
+    <div id="map"></div>
+    &nbsp;
+    <div id="warnings-panel"></div>
+	<script type="text/javascript" src="ecoMaps.js" async=""></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1gLv_qElQpjlAfjZ_FZdzkTsoi1UPxI&callback=initMap">
+    </script>
     </div>
   </body>
 </html>
+
+
+
