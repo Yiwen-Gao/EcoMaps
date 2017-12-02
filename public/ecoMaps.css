@@ -1,17 +1,18 @@
 .sidebar{
-background-color: black;
+font-family: 'Roboto', sans-serif;
+color: white;
+background-color: #98FB68;
 display: block;
 position: fixed;
 top: 0;
 bottom: 0;
 left: 0;
-width: 40%;
+width: 30%;
 margin: 0px;
 padding: 0px;
 }
 
 .title {
-background-color: yellow;
 top: 0;
 left: 0;
 width: 100%;
@@ -21,11 +22,13 @@ text-align: center;
 }
 
 .sidebar_inputs {
-background-color: blue;
+}
+
+input[type="text"] {
+font-family: 'Roboto', sans-serif;
 }
 
 .sidebar_route_lists {
-background-color: red;
 }
 
 .map_container {
@@ -35,7 +38,7 @@ position: fixed;
 top: 0;
 bottom: 0;
 right: 0;
-width: 60%;
+width: 70%;
 margin: 0;
 padding: 0;
 }
@@ -69,4 +72,29 @@ padding-left: 10px;
 width: 100%;
 height:10%;
 text-align: center;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
