@@ -1,0 +1,41 @@
+.sidebar{
+  background-color: black;
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.title {
+  background-color: yellow;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2;
+  list-style: none;
+  text-align: center;
+}
+
+.sidebar_inputs {
+  background-color: blue;
+}
+
+.sidebar_route_lists {
+  background-color: red;
+}
+
+.map {
+  background-color: lightblue;
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  margin: 0;
+  padding: 0;
+}
