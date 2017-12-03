@@ -10,7 +10,7 @@ left: 0;
 max-width: 35%;
 margin: 0px;
 padding: 0px;
-overflow: scroll;
+overflow: auto;
 }
 
 
@@ -82,7 +82,9 @@ text-align: center;
   font-weight: normal;
   font-style: normal;
   font-size: 24px;  /* Preferred icon size */
+  color: rgb(232, 177, 76);
   display: inline-block;
+  margin: 2%;
   line-height: 1;
   text-transform: none;
   letter-spacing: normal;
@@ -100,4 +102,37 @@ text-align: center;
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.route_name{
+	display: inline-block;
+	position: relative;
+	width: 50%;
+	height: 100%;
+}
+
+.route_duration{
+	display: inline-block;
+	position: relative;
+	text-align: right;
+	padding-right: 5%;
+	margin-right: 5%;
+	height: 100%;
+}
+
+h3 {
+	font-weight: 400;
+    font-size: 1rem;
+    line-height: 110%;
+    margin: 1.46rem 0 1.168rem 0;
+}
+
+.leaf_rating{
+  display: inline-block;
+  width: 30px;
+  top: 0;
+  left: 0;
+  padding-right: 2%;
+  list-style: none; 
+  text-align: center;
 }
