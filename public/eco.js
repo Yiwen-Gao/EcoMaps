@@ -32,8 +32,10 @@ function sendTravelData(jsonObject) {
 	$.post(url, JSON.stringify(jsonObject.characteristics), function(data) {
 		console.log("data: ");
 		console.log(data);
-		carbonEmitted = data.decisions.carbon.description;
-		console.log("carbonEmitted2: "+carbonEmitted);
+		carbonEmitted = data.decisions.carbon;
+		console.log("carbonEmitted2: "+carbonEmitted.description);
+		//Suggested $10 Donation per MT Ton of Carbon Emitted
+		console.log("suggested donations: "+carbonEmitted.object.value/100);
 	});
 	return carbonEmitted;
 }

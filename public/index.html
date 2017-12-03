@@ -4,16 +4,16 @@
   <title>EcoRoute</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  
+
   <link rel="stylesheet" href="ecoMaps.css">
-  <script type="text/javascript" src="eco.js" async=""></script>
+  <!--<script type="text/javascript" src="eco.js" async=""></script>-->
 </head>
 
 <body>
@@ -22,7 +22,7 @@
       <image src="EcoRoutesLogoWhiteRed.png" style="width: 80%;">
     </div>
     <div>
-      <div class="input-field col s6" style="width: 90%; clear: both; margin-left: 3%; padding-left: 3%;"> 
+      <div class="input-field col s6" style="width: 90%; clear: both; margin-left: 3%; padding-left: 3%;">
         <input type="text" id="start" style="width: 100%; clear: both">
         <label for="start">Origin</label>
       </div>
@@ -49,7 +49,9 @@
       <div id="map"></div>
       &nbsp;
       <div id="warnings-panel"></div>
+      <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
       <script type="text/javascript" src="ecoMaps.js" async=""></script>
+      <script type="text/javascript" src="users.js" async=""></script>
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1gLv_qElQpjlAfjZ_FZdzkTsoi1UPxI&callback=initMap">
       </script>
@@ -57,6 +59,3 @@
 </div>
 </body>
 </html>
-
-
-
