@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   
   <link rel="stylesheet" href="ecoMaps.css">
-  <script type="text/javascript" src="eco.js" async=""></script>
 </head>
 
 <body>
@@ -31,57 +30,61 @@
           <label for="end">Destination</label>
       </div>
     </div>
-    <div class="sidebar_route_lists">
-	  <div>
-        <i class="material-icons prefix">directions_car</i>
-        <div class="route_name">
-          <h3>via Union Street Station</h3>
-        </div>
-		<div class="route_duration">
-		  <h3>10 min</h3>
-		</div>
-		<div class="leaf_rating" style="width: 3%;">
-		  <image width="10" height="10" src="EcoLeaf.png">
-		</div>
-		<div class="leaf_rating" style="width: 3%;">
-		  <image width="10" height="10" src="EcoLeaf.png">
-		</div>
-		<div class="leaf_rating" style="width: 3%;">
-		  <image width="10" height="10" src="EcoLeaf.png">
-		</div>
+    <div id="sidebar_route_lists" class="sidebar_route_lists">
+  	  <div>
+          <i class="material-icons prefix">directions_car</i>
+          <div class="route_name">
+            <h3>via Union Street Station</h3>
+          </div>
+      		<div class="route_duration">
+      		  <h3>10 min</h3>
+      		</div>
+      		<div class="leaf_rating" style="width: 3%;">
+      		  <image width="10" height="10" src="EcoLeaf.png">
+      		</div>
+      		<div class="leaf_rating" style="width: 3%;">
+      		  <image width="10" height="10" src="EcoLeaf.png">
+      		</div>
+      		<div class="leaf_rating" style="width: 3%;">
+      		  <image width="10" height="10" src="EcoLeaf.png">
+      		</div>
       </div>
+      
       <div>
         <i class="material-icons prefix">directions_walk</i>
         <div class="route_name">
           <h3>via Metro-North Railroad</h3>
         </div>
-		<div class="route_duration">
-		  <h3>10 min</h3>
-		</div>
+    		<div class="route_duration">
+    		  <h3>10 min</h3>
+    		</div>
       </div>
+      
       <div>
         <i class="material-icons prefix">directions_railway</i>
         <div class="route_name">
           <h3>via Union Street Station</h3>
         </div>
-		<div class="route_duration">
-		  <h3>10 min</h3>
-		</div>
-		<div class="leaf_rating" style="width: 3%;">
-		  <image width="10" height="10" src="EcoLeaf.png">
-		</div>
+    		<div class="route_duration">
+    		  <h3>10 min</h3>
+    		</div>
+    		<div class="leaf_rating" style="width: 3%;">
+    		  <image width="10" height="10" src="EcoLeaf.png">
+    		</div>
       </div>
     </div>
     <div class="map_container">
       <div id="map"></div>
       &nbsp;
       <div id="warnings-panel"></div>
+      <script type="text/javascript" src="eco.js" async=""></script>
       <script type="text/javascript" src="ecoMaps.js" async=""></script>
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1gLv_qElQpjlAfjZ_FZdzkTsoi1UPxI&callback=initMap">
       </script>
+
+    </div>
   </div>
-</div>
 </body>
 </html>
 

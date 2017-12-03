@@ -17,7 +17,7 @@ function convertBus(distance) {
 }
 
 //From Carbon Footprint
-function convertSubway(distance) {
+function convertRail(distance) {
 	double carbonEmittedKg = distance * 0.000047;
 	double cost = carbonEmittedKg * 0.001 * 10; 
 	return cost
