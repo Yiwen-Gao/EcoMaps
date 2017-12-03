@@ -67,6 +67,7 @@ function initMap() {
 	for (var i = 0; i < directionDisplayArray.length; i++) {
 	  directionDisplayArray[i].setMap(null);
 	}
+	document.getElementById("sidebar_route_lists").innerHTML = "";
 	var drivingCost = [];
 	var transitCost = [];
 	// Retrieve the start and end locations and create a DirectionsRequest using
