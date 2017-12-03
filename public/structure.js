@@ -8,7 +8,11 @@ function route_chosen(carbonMoney) {
 	var isDonating = confirm("Would you like to make a donation?\nThe Carbon footprint "+
 	"generated from your trip will need $"+carbonMoney+" to offset.");
 	if(!isDonating){
-		window.location.href = "https://maps.google.com/";
+		var start = document.getElementById("start").value;
+		var end = document.getElementById("end").value;
+		start = start.split(' ').join('+');
+		end = end.split(' ').join('+');
+		window.location.href = "https://www.google.com/maps/dir/"+start+"/"+end;
 		return;
 	}
 
