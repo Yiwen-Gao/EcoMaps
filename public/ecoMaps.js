@@ -54,7 +54,7 @@ function initMap() {
 						  'Error: Your browser doesn\'t support geolocation.');
 	infoWindow.open(map);
   }
-
+	
   function calculateAndDisplayRoutes(directionsService,
 	  directionDisplayArray, stepDisplay, map) {
 	  if(document.getElementById('start').value == ""){
@@ -67,22 +67,27 @@ function initMap() {
 	for (var i = 0; i < directionDisplayArray.length; i++) {
 	  directionDisplayArray[i].setMap(null);
 	}
-
+	var drivingCost = [];
+	var transitCost = [];
 	// Retrieve the start and end locations and create a DirectionsRequest using
-	// WALKING directions.
+	// TRANSIT directions.
 	directionsService.route({
 	  origin: document.getElementById('start').value,
 	  destination: document.getElementById('end').value,
 	  travelMode: 'TRANSIT',//user input
 	  provideRouteAlternatives: true
 	}, function(response, status) {
+		
 	  // Route the directions and pass the response to a function to create
 	  // markers for each step.
 	  var polylineColors = ["blue", "green", "red", "yellow", "purple", "orange", "gray", "black"];
 	  if (status === 'OK') {
 		var numRoutes = response.routes.length;
 		console.log(numRoutes);
+		
 		for(var i = 0; i < numRoutes; i++){
+			var totalDistance = 0;
+			var distancesByMode = [0, 0, 0];	//car, rail, bus
 			// Create a renderer for directions and bind it to the map.
 			var directionsDisplay = new google.maps.DirectionsRenderer({map: map, polylineOptions: polylineOptionsActual});
 			directionDisplayArray.push(directionsDisplay);
@@ -95,11 +100,88 @@ function initMap() {
 			'<b>' + response.routes[i].warnings + '</b>';
 			directionsDisplay.setDirections(response);
 			directionsDisplay.setRouteIndex(i);
+			for(var j = 0; j < response.routes[i].legs.length; j++){
+				for(var k = 0; k < response.routes[i].legs[j].steps.length; k++){
+					if(response.routes[i].legs[j].steps[k].travelMode == 'TRANSIT'){
+						var vehicleType = response.routes[i].legs[j].steps[k].transit.line.vehicle.type;
+						if(vehicleType == 'BUS' || vehicleType == 'INTERCITY_BUS' || vehicleType == 'TROLLEYBUS'){
+							distancesByMode[2] += response.routes[i].legs[j].steps[k].distance.value;
+							totalDistance += response.routes[i].legs[j].steps[k].distance.value;
+						}
+						else{
+							distancesByMode[1] += response.routes[i].legs[j].steps[k].distance.value;
+							totalDistance += response.routes[i].legs[j].steps[k].distance.value;
+						}
+					}
+					else {
+						totalDistance += response.routes[i].legs[j].steps[k].distance.value;
+					}
+				}
+								
+			}
+			transitCost.push(convertRail(distancesByMode[1]) + convertBus(distancesByMode[2]));
+			
 		}
 		
 		//showSteps(response, directionDisplayArray, stepDisplay, map);
 	  } else {
 		window.alert('Directions request failed due to ' + status);
 	  }
+	  addRoute("TRANSIT", response, transitCost);
 	});
+	directionsService.route({
+	  origin: document.getElementById('start').value,
+	  destination: document.getElementById('end').value,
+	  travelMode: 'DRIVING',//user input
+	  provideRouteAlternatives: true
+	}, function(response, status) {
+	  // Route the directions and pass the response to a function to create
+	  // markers for each step.
+	  var polylineColors = ["blue", "green", "red", "yellow", "purple", "orange", "gray", "black"];
+	  if (status === 'OK') {
+		var numRoutes = response.routes.length;
+		console.log(numRoutes);
+		
+		for(var i = 0; i < numRoutes; i++){
+			var totalDistance = 0;
+			var distancesByMode = [0, 0, 0];	//car, rail, bus
+			// Create a renderer for directions and bind it to the map.
+			var directionsDisplay = new google.maps.DirectionsRenderer({map: map, polylineOptions: polylineOptionsActual});
+			directionDisplayArray.push(directionsDisplay);
+			var polylineOptionsActual = {
+			  strokeColor: polylineColors[i],
+			  strokeOpacity: 1.0,
+			  strokeWeight: 10
+			 };
+			 document.getElementById('warnings-panel').innerHTML =
+			'<b>' + response.routes[i].warnings + '</b>';
+			directionsDisplay.setDirections(response);
+			directionsDisplay.setRouteIndex(i);
+			for(var j = 0; j < response.routes[i].legs.length; j++){
+				for(var k = 0; k < response.routes[i].legs[j].steps.length; k++){
+					if(response.routes[i].legs[j].steps[k].travelMode == 'DRIVING'){
+						distancesByMode[0] += response.routes[i].legs[j].steps[k].distance.value;
+						totalDistance += response.routes[i].legs[j].steps[k].distance.value;
+					}
+					else {
+						totalDistance += response.routes[i].legs[j].steps[k].distance.value;
+					}
+				}
+				
+				
+			}
+			drivingCost.push(convertAuto(distancesByMode[0]));
+			
+		}
+		
+		//showSteps(response, directionDisplayArray, stepDisplay, map);
+	  } else {
+		window.alert('Directions request failed due to ' + status);
+	  }
+	  addRoute("DRIVING", response, busCost);
+	});
+	console.log(transitCost);
+	console.log(drivingCost);
   }
+  
+  
