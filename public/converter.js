@@ -1,6 +1,6 @@
 //From the EPA
 function convertAuto(distance) {
-	double carbonEmittedKg = distance * 0.000621371 * 19.6 / jsonObject.mpg * 0.453592;
+	double carbonEmittedKg = distance * 0.000621371 * 19.6 / 23.6 * 0.453592;
 	double cost = carbonEmitted * 0.001 * 10;
 	return cost;
 }
