@@ -21,7 +21,6 @@ function initMap() {
 		  lng: position.coords.longitude
 		};
 
-		
 		map.setCenter(pos);
 		map.setZoom(13);
 	  }, function() {
@@ -31,7 +30,7 @@ function initMap() {
 	  // Browser doesn't support Geolocation
 	  handleLocationError(false, infoWindow, map.getCenter());
 	}
-	
+
 	// Instantiate an info window to hold step text.
 	var stepDisplay = new google.maps.InfoWindow;
 
@@ -46,7 +45,7 @@ function initMap() {
 	document.getElementById('start').addEventListener('change', onChangeHandler);
 	document.getElementById('end').addEventListener('change', onChangeHandler);
   }
-  
+
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	infoWindow.setPosition(pos);
 	infoWindow.setContent(browserHasGeolocation ?
@@ -54,7 +53,7 @@ function initMap() {
 						  'Error: Your browser doesn\'t support geolocation.');
 	infoWindow.open(map);
   }
-	
+
   function calculateAndDisplayRoutes(directionsService,
 	  directionDisplayArray, stepDisplay, map) {
 	  if(document.getElementById('start').value == ""){
@@ -77,7 +76,7 @@ function initMap() {
 	  travelMode: 'TRANSIT',//user input
 	  provideRouteAlternatives: true
 	}, function(response, status) {
-		
+
 	  // Route the directions and pass the response to a function to create
 	  // markers for each step.
 	  var polylineColors = ["blue", "green", "red", "yellow"];
@@ -115,12 +114,12 @@ function initMap() {
 						totalDistance += response.routes[i].legs[j].steps[k].distance.value;
 					}
 				}
-								
+
 			}
 			transitCost.push(convertRail(distancesByMode[1]) + convertBus(distancesByMode[2]));
-			
+
 		}
-		
+
 		//showSteps(response, directionDisplayArray, stepDisplay, map);
 	  } else {
 		window.alert('Directions request failed due to ' + status);
@@ -163,23 +162,17 @@ function initMap() {
 						totalDistance += response.routes[i].legs[j].steps[k].distance.value;
 					}
 				}
-				
-				
+
+
 			}
 			drivingCost.push(convertAuto(distancesByMode[0]));
-			
+
 		}
-		
+
 		//showSteps(response, directionDisplayArray, stepDisplay, map);
 	  } else {
 		window.alert('Directions request failed due to ' + status);
 	  }
-<<<<<<< HEAD
-	  addRoute("DRIVING", response, transitCost);
-=======
 	  addRoute("DRIVING", response, drivingCost);
->>>>>>> Yiwen-Gao/master
 	});
   }
-  
-  
