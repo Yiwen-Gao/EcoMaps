@@ -16,9 +16,8 @@ function route_chosen(carbonMoney) {
 		return;
 	}
 	if(isDonating){
-		window.location.href = "https://www.paypal.com/fundraiser/108133408063901813/charity/2712071";
+		window.location.href = "https://www.paypal.com/fundraiser/108133408063901813/charity/1438793";
 	}
-
 }
 
 function addRoute(mode, response, cost) {
@@ -78,5 +77,5 @@ function addRoute(mode, response, cost) {
 		styling += '</div>';
 	}
 
-	document.getElementById("sidebar_route_lists").innerHTML = styling;
+	document.getElementById("sidebar_route_lists").innerHTML += styling;
 }
