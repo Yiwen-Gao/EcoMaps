@@ -11,7 +11,7 @@ function route_chosen(carbonMoney) {
 		window.location.href = "https://maps.google.com/";
 		return;
 	}
-	
+
 }
 
 function addRoute(mode, response, cost) {
@@ -20,7 +20,7 @@ function addRoute(mode, response, cost) {
 	if (mode == 'DRIVING') iconHTML = carHTML;
 	else if (mode == 'TRANSIT') iconHTML = railHTML;
 
-	
+
 	for (var i = 0 ; i < response.routes.length; i++) {
 		styling += '<div style="width: 100%;" onclick="route_chosen('+cost[i].toFixed(2)+')">';
 		var duration = 0;
@@ -35,7 +35,6 @@ function addRoute(mode, response, cost) {
 		}
 		var maxCost = Math.max.apply(null, cost);
 		var numLeaves = 4 - Math.floor(cost[i] * 4 / maxCost);
-		
 		for(var j = 0; j < response.routes[i].legs.length; j++){
 			duration += response.routes[i].legs[j].duration.value;
 		}
@@ -71,6 +70,6 @@ function addRoute(mode, response, cost) {
 		styling += leafHTML.repeat(numLeaves);
 		styling += '</div>';
 	}
-	
+
 	document.getElementById("sidebar_route_lists").innerHTML = styling;
 }
