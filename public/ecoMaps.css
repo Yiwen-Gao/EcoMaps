@@ -84,7 +84,8 @@ text-align: center;
   font-size: 24px;  /* Preferred icon size */
   color: rgb(232, 177, 76);
   display: inline-block;
-  margin: 2%;
+  margin-left: 2%;
+  margin-right: 3%;
   line-height: 1;
   text-transform: none;
   letter-spacing: normal;
@@ -107,16 +108,17 @@ text-align: center;
 .route_name{
 	display: inline-block;
 	position: relative;
-	width: 45%;
+	width: 40%;
 	height: 100%;
 }
 
 .route_duration{
 	display: inline-block;
 	position: relative;
-	text-align: right;
-	padding-right: 5%;
-	margin-right: 5%;
+	width: 25%;
+	max-width: 150px;
+	padding-left: 2%;
+	text-align: left;
 	height: 100%;
 }
 
@@ -127,12 +129,18 @@ h3 {
     margin: 1.46rem 0 1.168rem 0;
 }
 
+.leaf_rating_container{
+	display: inline-block;
+	width: auto;
+	text-align: right;
+	padding-right: 2%;
+}
+
 .leaf_rating{
   display: inline-block;
   width: 30px;
   top: 0;
   left: 0;
-  padding-right: 2%;
-  list-style: none;
-  text-align: center;
+  list-style: none; 
+  text-align: right;
 }

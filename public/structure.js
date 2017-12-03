@@ -1,8 +1,8 @@
-var leafHTML = '<div class="leaf_rating" style="width: 3%;"> <image width="10" height="10" src="EcoLeaf.png"> </div> ';
+var leafHTML = '<div class="leaf_rating_container"> <div class="leaf_rating" style="width: 3%;"> <image width="10" height="10" src="EcoLeaf.png"> </div> </div>';
 var carHTML = '<i class="material-icons prefix">directions_car</i> ';
 var railHTML = '<i class="material-icons prefix">directions_railway</i> ';
 
-var styling = "";
+var styling;
 
 function route_chosen(carbonMoney) {
 	var isDonating = confirm("Would you like to make a donation?\nThe Carbon footprint "+
@@ -19,7 +19,7 @@ function route_chosen(carbonMoney) {
 }
 
 function addRoute(mode, response, cost) {
-
+	styling = "";
 	var iconHTML;
 	if (mode == 'DRIVING') iconHTML = carHTML;
 	else if (mode == 'TRANSIT') iconHTML = railHTML;
@@ -39,12 +39,38 @@ function addRoute(mode, response, cost) {
 		}
 		var maxCost = Math.max.apply(null, cost);
 		var numLeaves = 4 - Math.floor(cost[i] * 4 / maxCost);
-
 		for(var j = 0; j < response.routes[i].legs.length; j++){
 			duration += response.routes[i].legs[j].duration.value;
 		}
-		duration /= 60;
-		styling += '<div class="route_duration"> <h3>' + duration.toFixed(0) + ' min</h3> </div> ';
+		
+		function durationToString(seconds){
+			var days = Math.floor(seconds / 86400);
+			seconds %= 86400;
+			var hours = Math.floor(seconds / 3600);
+			seconds %= 3600;
+			var minutes = Math.round(seconds / 60);
+			var string = "";
+			if(days > 0){
+				string += days + " day";
+				if(days > 1)
+					string += "s";
+			}
+			if(minutes == 60){
+				hours++;
+				minutes = 0;
+				
+			}
+			if(hours > 0){
+				string += " " + hours + " hr";
+				if(hours > 1)
+					string += "s";
+			}
+			if(minutes > 0){
+				string += " " + minutes + " min";
+			}
+			return string;
+		}
+		styling += '<div class="route_duration"> <h3>' + durationToString(duration) + '</h3> </div> '; 
 		styling += leafHTML.repeat(numLeaves);
 		styling += '</div>';
 	}
