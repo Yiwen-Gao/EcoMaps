@@ -15,6 +15,9 @@ function route_chosen(carbonMoney) {
 		window.location.href = "https://www.google.com/maps/dir/"+start+"/"+end;
 		return;
 	}
+	if(isDonating){
+		window.location.href = "https://www.paypal.com/fundraiser/108133408063901813/charity/2712071";
+	}
 
 }
 
