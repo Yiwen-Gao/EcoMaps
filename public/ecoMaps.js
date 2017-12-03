@@ -81,7 +81,6 @@ function initMap() {
 	  var polylineColors = ["blue", "green", "red", "yellow", "purple", "orange", "gray", "black"];
 	  if (status === 'OK') {
 		var numRoutes = response.routes.length;
-		console.log(numRoutes);
 		for(var i = 0; i < numRoutes; i++){
 			// Create a renderer for directions and bind it to the map.
 			var directionsDisplay = new google.maps.DirectionsRenderer({map: map, polylineOptions: polylineOptionsActual});
