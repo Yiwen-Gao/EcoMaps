@@ -83,8 +83,6 @@ function initMap() {
 	  var polylineColors = ["blue", "green", "red", "yellow"];
 	  if (status === 'OK') {
 		var numRoutes = response.routes.length;
-		console.log(numRoutes);
-		
 		for(var i = 0; i < numRoutes; i++){
 			var totalDistance = 0;
 			var distancesByMode = [0, 0, 0];	//car, rail, bus
@@ -140,8 +138,6 @@ function initMap() {
 	  var polylineColors = ["purple", "orange", "yellow", 'black'];
 	  if (status === 'OK') {
 		var numRoutes = response.routes.length;
-		console.log(numRoutes);
-		
 		for(var i = 0; i < numRoutes; i++){
 			var totalDistance = 0;
 			var distancesByMode = [0, 0, 0];	//car, rail, bus
@@ -180,8 +176,6 @@ function initMap() {
 	  }
 	  addRoute("DRIVING", response, transitCost);
 	});
-	console.log(transitCost);
-	console.log(drivingCost);
   }
   
   
