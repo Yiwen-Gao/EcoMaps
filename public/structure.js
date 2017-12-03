@@ -3,18 +3,19 @@ var carHTML = '<i class="material-icons prefix">directions_car</i>';
 var railHTML = '<i class="material-icons prefix">directions_railway</i>';
 
 var route_list_element = document.getElementById("sidebar_route_lists");
-var styling;
+var styling = "";
 
-function addRoute(mode, route, cost) {
+function addRoute(mode, response, cost) {
 
 	var iconHTML;
 	if (mode == 'DRIVING') iconHTML = carHTML;
 	else if (mode == 'TRANSIT') iconHTML = railHTML;
+	console.log(iconHTML);
 
 	styling += "<div>";
-	for (var i = 0 ; i < route.length; i++) {
+	for (var i = 0 ; i < response.routes.length; i++) {
 		styling += iconHTML;
-		styling += '<div class="route_name"> <h3>' + route[i] + 'm </h3> </div>';
+		styling += '<div class="response_name"> <h3>' + i + 'm </h3> </div>';
 		
 		var costString = cost[i] + "";
 		var size = costString.substring(0,".");
@@ -25,6 +26,5 @@ function addRoute(mode, route, cost) {
 
 		styling += '</div>';
 	}
-
 route_list_element.innnerHtml = styling;
 }
