@@ -33,11 +33,8 @@ function addRoute(mode, response, cost) {
 			var arrTime = response.routes[i].legs[response.routes[i].legs.length - 1].arrival_time;
 			styling += '<div class="route_name"> <h3>' + depTime.text + " - " + arrTime.text + '</h3> </div> ';
 		}
-		console.log(cost);
 		var maxCost = Math.max.apply(null, cost);
-		console.log(maxCost);
 		var numLeaves = 4 - Math.floor(cost[i] * 4 / maxCost);
-		console.log(numLeaves);
 
 		for(var j = 0; j < response.routes[i].legs.length; j++){
 			duration += response.routes[i].legs[j].duration.value;
@@ -49,5 +46,4 @@ function addRoute(mode, response, cost) {
 	}
 
 	document.getElementById("sidebar_route_lists").innerHTML = styling;
-	console.log(styling);
 }
