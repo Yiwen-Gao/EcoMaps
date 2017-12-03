@@ -1,7 +1,7 @@
 //From the EPA
 function convertAuto(distance) {
 	var carbonEmittedKg = distance * 0.000621371 * 19.6 / 23.6 * 0.453592;
-	var cost = carbonEmitted * 0.001 * 10;
+	var cost = carbonEmittedKg * 0.001 * 10;
 	return cost;
 }
 

@@ -80,7 +80,7 @@ function initMap() {
 		
 	  // Route the directions and pass the response to a function to create
 	  // markers for each step.
-	  var polylineColors = ["blue", "green", "red", "yellow", "purple", "orange", "gray", "black"];
+	  var polylineColors = ["blue", "green", "red", "yellow"];
 	  if (status === 'OK') {
 		var numRoutes = response.routes.length;
 		console.log(numRoutes);
@@ -102,7 +102,7 @@ function initMap() {
 			directionsDisplay.setRouteIndex(i);
 			for(var j = 0; j < response.routes[i].legs.length; j++){
 				for(var k = 0; k < response.routes[i].legs[j].steps.length; k++){
-					if(response.routes[i].legs[j].steps[k].travelMode == 'TRANSIT'){
+					if(response.routes[i].legs[j].steps[k].travel_mode == 'TRANSIT'){
 						var vehicleType = response.routes[i].legs[j].steps[k].transit.line.vehicle.type;
 						if(vehicleType == 'BUS' || vehicleType == 'INTERCITY_BUS' || vehicleType == 'TROLLEYBUS'){
 							distancesByMode[2] += response.routes[i].legs[j].steps[k].distance.value;
@@ -137,7 +137,7 @@ function initMap() {
 	}, function(response, status) {
 	  // Route the directions and pass the response to a function to create
 	  // markers for each step.
-	  var polylineColors = ["blue", "green", "red", "yellow", "purple", "orange", "gray", "black"];
+	  var polylineColors = ["purple", "orange", "yellow", 'black'];
 	  if (status === 'OK') {
 		var numRoutes = response.routes.length;
 		console.log(numRoutes);
@@ -159,7 +159,7 @@ function initMap() {
 			directionsDisplay.setRouteIndex(i);
 			for(var j = 0; j < response.routes[i].legs.length; j++){
 				for(var k = 0; k < response.routes[i].legs[j].steps.length; k++){
-					if(response.routes[i].legs[j].steps[k].travelMode == 'DRIVING'){
+					if(response.routes[i].legs[j].steps[k].travel_mode == 'DRIVING'){
 						distancesByMode[0] += response.routes[i].legs[j].steps[k].distance.value;
 						totalDistance += response.routes[i].legs[j].steps[k].distance.value;
 					}
@@ -178,7 +178,7 @@ function initMap() {
 	  } else {
 		window.alert('Directions request failed due to ' + status);
 	  }
-	  addRoute("DRIVING", response, busCost);
+	  addRoute("DRIVING", response, transitCost);
 	});
 	console.log(transitCost);
 	console.log(drivingCost);

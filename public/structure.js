@@ -20,7 +20,7 @@ function addRoute(mode, route, cost) {
 		var size = costString.substring(0,".");
 		if (size == 1) styling += leafHTML + leafHTML + leafHTML;
 		else if (size == 2) styling += leafHTML + leafHTML;
-		else styling += leafHTML;
+		else if (size ==3) styling += leafHTML;
 		else styling += "";
 
 		styling += '</div>';
