@@ -174,7 +174,11 @@ function initMap() {
 	  } else {
 		window.alert('Directions request failed due to ' + status);
 	  }
+<<<<<<< HEAD
 	  addRoute("DRIVING", response, transitCost);
+=======
+	  addRoute("DRIVING", response, drivingCost);
+>>>>>>> Yiwen-Gao/master
 	});
   }
   

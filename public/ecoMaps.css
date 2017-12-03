@@ -107,7 +107,7 @@ text-align: center;
 .route_name{
 	display: inline-block;
 	position: relative;
-	width: 50%;
+	width: 45%;
 	height: 100%;
 }
 
@@ -133,6 +133,6 @@ h3 {
   top: 0;
   left: 0;
   padding-right: 2%;
-  list-style: none; 
+  list-style: none;
   text-align: center;
 }
