@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
   <link rel="stylesheet" href="ecoMaps.css">
-  <!--<script type="text/javascript" src="eco.js" async=""></script>-->
 </head>
 
 <body>
@@ -27,35 +26,26 @@
         <label for="start">Origin</label>
       </div>
       <div class="input-field col s6" style="width: 90%; clear: both; margin-left: 3%; padding-left: 3%">
-          <input type="text" id="end" style="width: 100%; clear: both;">
+          <input type="text" id="end" style="width: 100%; clear: both;" value="Museum of Modern Art">
           <label for="end">Destination</label>
       </div>
     </div>
-    <div class="sidebar_route_lists">
-      <div class="input-field col s6" style="width: 90%;">
-        <i class="material-icons prefix" style="margin-left: 2%;">directions_car</i>
-        <input type="text" id="car" class="validate" style="display: inline-block; padding-right: 5%;">
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">directions_walk</i>
-        <input type="text" id="walk" class="validate">
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">directions_railway</i>
-        <input type="text" id="bus" class="validate">
-      </div>
+
+    <div id="sidebar_route_lists" class="sidebar_route_lists">
+		<div> <i class="material-icons prefix">directions_car</i> <div class="route_name"> <h3>0m</h3> </div> <i class="material-icons prefix">directions_car</i> <div class="route_name"> <h3>1m</h3> </div> <i class="material-icons prefix">directions_car</i> <div class="route_name"> <h3>2m</h3> </div> </div>
     </div>
+
     <div class="map_container">
       <div id="map"></div>
       &nbsp;
       <div id="warnings-panel"></div>
-      <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+      <script type="text/javascript" src="converter.js" async=""></script>
       <script type="text/javascript" src="ecoMaps.js" async=""></script>
-      <script type="text/javascript" src="users.js" async=""></script>
+      <script type="text/javascript" src="structure.js" async=""></script>
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm1gLv_qElQpjlAfjZ_FZdzkTsoi1UPxI&callback=initMap">
       </script>
+    </div>
   </div>
-</div>
 </body>
 </html>
