@@ -1,16 +1,19 @@
 .sidebar{
 font-family: 'Roboto', sans-serif;
 color: white;
-background-color: #98FB68;
+background-color: rgb(187, 218, 164);
 display: block;
 position: fixed;
 top: 0;
 bottom: 0;
 left: 0;
-width: 30%;
+max-width: 35%;
 margin: 0px;
 padding: 0px;
+overflow: scroll;
 }
+
+
 
 .title {
 top: 0;
@@ -38,7 +41,7 @@ position: fixed;
 top: 0;
 bottom: 0;
 right: 0;
-width: 70%;
+width: 65%;
 margin: 0;
 padding: 0;
 }
