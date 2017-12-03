@@ -2,13 +2,12 @@
                       Team 1
 /*-------------------------------------------------*/
 
-var sampleJSONString = "{}";
+var sampleJSONString = '{"mode" : "flight", "characteristics": {"origin_airport": "LAX", "destination_airport": "JFK"}}';
 var sampleJSONObj = JSON.parse(sampleJSONString);
 sendTravelData(sampleJSONObj);
 
 function sendTravelData(jsonObject) {
-	var jsonString = JSON.stringify(jsonObject);
-	var modeOfTransport = jsonString.name;
+	var modeOfTransport = jsonObject.mode;
 
 	var url;
 
@@ -23,18 +22,22 @@ function sendTravelData(jsonObject) {
 	}
 	else if (modeOfTransport == "bus") {
 		url = "http://impact.brighterplanet.com/bus.json";
+	} else {
+		console.log("ERROR: Wrong mode of transportation specified");
+		return;
 	}
 
 	var carbonEmitted;
 
-	$.post(url, function(error, response, body) { 
-		var jsonResponse = JSON.parse(body);
-		carbonEmitted = jsonResponse.decisions.carbon.value;
+	$.post(url, JSON.stringify(jsonObject.characteristics), function(data) {
+		console.log("data: ");
+		console.log(data);
+		carbonEmitted = data.decisions.carbon.description;
+		console.log("carbonEmitted2: "+carbonEmitted);
 	});
- 
 	return carbonEmitted;
 }
 
 function getCost() {
 	return getCarbonEmitted() * 1;
-} 
+}
