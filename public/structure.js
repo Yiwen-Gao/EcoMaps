@@ -4,11 +4,15 @@ var walkHTML =
 var busHTML = 
 var route_list_element = document.getElementById("sidebar_route_lists");
 
-function updateRouteList(routes) {
-	routes. 
-	//mode of transport
-	//route name
-	//route duration
-	route_list_element.innnerHtml = "";
+function updateRouteList(railRoute, railCost, carRoute, carCost) {
+	var totalRoutes = railRoute.length + carRoute.length;
+
+	for (var i = 0 ; i < totalRoutes; i++) {}
+		routes. 
+		//mode of transport
+		//route name
+		//route duration
+		route_list_element.innnerHtml = "";
+	}
 
 }
