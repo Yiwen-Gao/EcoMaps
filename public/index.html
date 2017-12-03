@@ -4,22 +4,20 @@
   <title>EcoRoute</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <script type="text/javascript" src="eco.js" async=""></script>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <link rel="stylesheet" href="ecoMaps.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
- 
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
+ <script type="text/javascript" src="eco.js" async=""></script>
+ <link rel="stylesheet" href="ecoMaps.css">
 </head>
 
 <body>
   <div class="sidebar">
     <div class="title">
-      <image src="EcoRoutesLogoWhite.png" style="width: 80%;">
+      <image src="EcoRoutesLogoWhiteRed.png" style="width: 80%;">
     </div>
     <div>
       <div class="input-field col s6" style="width: 90%; clear: both; margin-left: 3%; padding-left: 3%;"> 
@@ -32,17 +30,44 @@
       </div>
     </div>
     <div class="sidebar_route_lists">
-      <div class="input-field col s6" style="width: 90%;">
-        <i class="material-icons prefix" style="margin-left: 2%;">directions_car</i>
-        <input type="text" id="car" class="validate" style="display: inline-block; padding-right: 5%;">
+	  <div>
+        <i class="material-icons prefix">directions_car</i>
+        <div class="route_name">
+          <h3>via Union Street Station</h3>
+        </div>
+		<div class="route_duration">
+		  <h3>10 min</h3>
+		</div>
+		<div class="leaf_rating" style="width: 3%;">
+		  <image width="10" height="10" src="EcoLeaf.png">
+		</div>
+		<div class="leaf_rating" style="width: 3%;">
+		  <image width="10" height="10" src="EcoLeaf.png">
+		</div>
+		<div class="leaf_rating" style="width: 3%;">
+		  <image width="10" height="10" src="EcoLeaf.png">
+		</div>
       </div>
-      <div class="input-field col s6">
+      <div>
         <i class="material-icons prefix">directions_walk</i>
-        <input type="text" id="walk" class="validate">
+        <div class="route_name">
+          <h3>via Metro-North Railroad</h3>
+        </div>
+		<div class="route_duration">
+		  <h3>10 min</h3>
+		</div>
       </div>
-      <div class="input-field col s6">
+      <div>
         <i class="material-icons prefix">directions_railway</i>
-        <input type="text" id="bus" class="validate">
+        <div class="route_name">
+          <h3>via Union Street Station</h3>
+        </div>
+		<div class="route_duration">
+		  <h3>10 min</h3>
+		</div>
+		<div class="leaf_rating" style="width: 3%;">
+		  <image width="10" height="10" src="EcoLeaf.png">
+		</div>
       </div>
     </div>
     <div class="map_container">
